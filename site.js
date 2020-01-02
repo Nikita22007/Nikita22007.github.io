@@ -1,6 +1,6 @@
 function testkey(key){
   if (key==''){return true}//пустой ключ
-  if ((key.length<4) ||(length>16)){
+  if ((key.length<4) ||(key.length>16)){
     return false;
   }
   if ((!parseInt(key))&&((+key)!=0)){

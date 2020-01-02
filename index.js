@@ -409,7 +409,9 @@ data.COFFEE = {
   decrypt: function(encrypted, key) {
     try {
       var c = data.COFFEE.check(encrypted);
-      if (!c) return "NOT COFFEE ENCRYPTED";
+      var DoIt=false;
+      if (!c){DoIt=confirm('Не  шифр VKCOFFEE. Попробовать расшифровать?');}
+      if ((!c)&&(!DoIt)) return "NOT COFFEE ENCRYPTED";
       if (key) {
         key = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(key + "mailRuMustDie"), CryptoJS.enc.Utf8.parse(data.COFFEE.key), {
           mode: CryptoJS.mode.ECB,
@@ -419,13 +421,15 @@ data.COFFEE = {
       } else {
         key = data.COFFEE.key;
       }
-      return CryptoJS.AES.decrypt((c[1].split(" ").join("").hexDecode()), CryptoJS.enc.Utf8.parse(key), {
+      return CryptoJS.AES.decrypt(((DoIt?encrypted:c[1]).split(" ").join("").hexDecode()), CryptoJS.enc.Utf8.parse(key), {
         mode: CryptoJS.mode.ECB,
         padding: CryptoJS.pad.Pkcs7,
         keySize: 128 / 32
       }).toString(CryptoJS.enc.Utf8).escape();
     } catch (err) {
-      return false;
+      //return false
+      alert("DECRYPTION ERROR.");//Уведомим пользователя об ошибке
+      return "DECRYPTION ERROR.";
     }
   },
   encrypt: function(decrypted, key) {
@@ -449,4 +453,4 @@ data.COFFEE = {
   }
 };
 
-module.exports = data.COFFEE;
+module.exports = data.COFFEE; 

@@ -3,6 +3,11 @@
    <meta charset="utf-8">
   <title>Coffee Scripts</title>
     <script src="index.js" type="text/javascript"></script> 
+    <script src="site.js" type="text/javascript"></script> 
+    <script>
+    window.data=data;
+    window.coffee=data.COFFEE;
+   </script>    
 </head>
 <body>
   <!--  <script type="text/javascript">
@@ -13,19 +18,21 @@
         alert(decryptedMessage);
     </script>
     -->
-    Введите сообщение: <br>
+    <B>Введите сообщение: </B><br>
     <textarea id="message"cols=33>Hello world!</textarea>
     <br>
-   <input type="button" value="Зашифровать" onclick="document.getElementById('result').value=data.COFFEE.encrypt(
-   document.getElementById('message').value,document.getElementById('key').value);">
-    <input type="button" value="Расшифровать" onclick="document.getElementById('result').value=data.COFFEE.decrypt(
-   document.getElementById('message').value,document.getElementById('key').value);">
+   <input type="button" value="Зашифровать" onclick="encrypt()">
+    <input type="button" value="Расшифровать" onclick="decrypt();">
    <br>
-   Ключ/пин (если нет, оставьте пустым):
+   <B>Ключ/пин</B> (если нет, оставьте пустым):
    	<br>
 <input type="text" id="key">
    	<br>
-   результат:
+     <i>Ключ VK COFFEE - положительное число из 4-16 цифр.</i>
+    <br>
+    <i>(Де)шифратор поддерживает и другие ключи, но такие сообщения нельзя расшифровать в VK COFFEE</i>
+    <br>
+   <B>Результат:</B>
    <br>
     <textarea id="result" cols=33 readonly>Hello world!</textarea>
     <br>

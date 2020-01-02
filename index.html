@@ -14,10 +14,14 @@
     <textarea id="message"cols=33>Hello world!</textarea>
     <br>
    <input type="button" value="Зашифровать" onclick="document.getElementById('result').value=data.COFFEE.encrypt(
-   document.getElementById('message').value);">
+   document.getElementById('message').value,document.getElementById('key').value);">
     <input type="button" value="Расшифровать" onclick="document.getElementById('result').value=data.COFFEE.decrypt(
-   document.getElementById('message').value);">
+   document.getElementById('message').value,document.getElementById('key').value);">
    <br>
+   Ключ/пин (если нет, оставьте пустым):
+   	<br>
+<input type="text" id="key">;
+   	<br>
    результат:
    <br>
     <textarea id="result" cols=33 readonly>Hello world!</textarea>

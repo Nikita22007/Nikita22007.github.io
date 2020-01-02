@@ -1,0 +1,25 @@
+<head>
+    <script src="index.js" type="text/javascript"></script> 
+</head>
+<body>
+  <!--  <script type="text/javascript">
+    var vkcoffee=data.COFFEE;
+        var cryptedMessage = vkcoffee.encrypt('сообщение');
+        alert(cryptedMessage);
+        var decryptedMessage = vkcoffee.decrypt(cryptedMessage);
+        alert(decryptedMessage);
+    </script>
+    -->
+    Введите сообщение: <br>
+    <textarea id="message"cols=33>Hello world!</textarea>
+    <br>
+   <input type="button" value="Зашифровать" onclick="document.getElementById('result').value=data.COFFEE.encrypt(
+   document.getElementById('message').value);">
+    <input type="button" value="Расшифровать" onclick="document.getElementById('result').value=data.COFFEE.decrypt(
+   document.getElementById('message').value);">
+   <br>
+   результат:
+   <br>
+    <textarea id="result" cols=33 readonly>Hello world!</textarea>
+    <br>
+ </body>
